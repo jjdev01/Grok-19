@@ -1,36 +1,6 @@
 var axios = require("axios");
 
-class TimeSlice {
-    /*
-     * Represents time intervals
-     */
-
-    begin: Date;
-    end: Date;
-
-    constructor(begin: Date, end: Date) {
-        this.begin = begin;
-        this.end = end;
-    }
-}
-
-class Filter {
-    country: string;
-    state: string;
-    interval: TimeSlice;
-
-    constructor(country: string, state: string, interval: TimeSlice) {
-        this.country = country;
-        this.state = state;
-        this.interval = interval;
-    }
-
-    toString() {
-        return `country=${this.country}&state=${
-            this.state
-        }&min_date=${this.interval.begin.toISOString()}&max_date=${this.interval.end.toISOString()}`;
-    }
-}
+import Filter from "./Filter";
 
 class RequestBase {
     hidden_fields: Array<string>;
@@ -69,7 +39,7 @@ class RequestBase {
     }
 }
 
-class RequestGlobal extends RequestBase {
+export default class RequestGlobal extends RequestBase {
     endpoint: string;
     constructor() {
         super();
@@ -84,15 +54,3 @@ class RequestGlobal extends RequestBase {
         return this.apiCall(url);
     }
 }
-var R = new RequestGlobal();
-
-var filter = new Filter(
-    "France",
-    "Guadeloupe",
-    new TimeSlice(
-        new Date("2020-04-25T00:00:00.000Z"),
-        new Date("2020-04-27T00:00:00.000Z")
-    )
-);
-
-R.obtain(filter);

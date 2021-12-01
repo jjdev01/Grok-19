@@ -1,36 +1,70 @@
-# Grok 19
+# Getting Started with Create React App
 
-A COVID 19 dashboard written in React JS to display information regarding infections, deaths and other meaningful information regarding the matter.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-# Resources 
+## Available Scripts
 
-- API documentation found [here](https://documenter.getpostman.com/view/1678623/SzfDx54T?version=latest)
-    * This data is provided by Jon Hopkins University
-    * 
-# Dependencies
-- Axios for HTTP GET requests
-- Interactive map for the continental United States found [here](https://www.npmjs.com/package/react-usa-map)
-- Interactive map for the entire world found [here](https://www.react-simple-maps.io/docs/getting-started/)
-- Calendar date picker [here](https://github.com/stephy/CalendarPicker)
+In the project directory, you can run:
 
-## Installation using Docker
+### `yarn start`
 
-This project is simple to setup:
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1. Clone this repository using the command : `git clone https://github.com/JaredDyreson/Expresso.git`
-2. `cd` into it
-3. Ensure `docker` is installed on your machine, the documentation for your specific machine can be found [here](https://docs.docker.com/get-docker/)
-4. To run the current container, you can run `docker-compose up --build -d`. The instance will then be running on [localhost](http://localhost:3000) on port 3000
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
+### `yarn test`
 
-## Installation not using Docker
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-**It is recommended at this point to containerize your dependencies so they are easily tracked**
+### `yarn build`
 
-1. Clone this repository using the command : `git clone https://github.com/JaredDyreson/Expresso.git`
-2. `cd` into it
-3. Ensure `node` is installed, [here](https://nodejs.org/en/) is the landing page for node
-4. After `node` is installed, you should then install `yarn` to manage your packages. That can be found [here](https://classic.yarnpkg.com/lang/en/docs/install/#debian-stable)
-5. Next, run `yarn install` to install all the dependencies needed for this project to work
-6. Then, in a separate terminal window, run the command `npm start` in the root directory of the project
-7. This will spawn a new window where the application will be running
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `yarn eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `yarn build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
