@@ -16,7 +16,7 @@ A COVID 19 dashboard written in React JS to display information regarding infect
 # TODO
 
 - [ ] Continental US interactive map
-- [ ] World view
+- [ ] World view (these actions apply to each country hovered over)
     - [ ] Show total deaths that day
     - [ ] Show total infections that day
 - [ ] Grok Window
