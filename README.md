@@ -6,12 +6,40 @@ A COVID 19 dashboard written in React JS to display information regarding infect
 
 - API documentation found [here](https://documenter.getpostman.com/view/1678623/SzfDx54T?version=latest)
     * This data is provided by Jon Hopkins University
-    * 
+
 # Dependencies
 - Axios for HTTP GET requests
 - Interactive map for the continental United States found [here](https://www.npmjs.com/package/react-usa-map)
 - Interactive map for the entire world found [here](https://www.react-simple-maps.io/docs/getting-started/)
 - Calendar date picker [here](https://github.com/stephy/CalendarPicker)
+
+# TODO
+
+- [ ] Continental US interactive map
+- [ ] World view
+    - [ ] Show total deaths that day
+    - [ ] Show total infections that day
+- [ ] Grok Window
+    - [ ] State
+        - [ ] Drop down
+        - [ ] All selection
+        - [ ] Conditional for drop down when all selected
+    - [ ] County
+        - [ ] Drop down
+        - [ ] All selection
+        - [ ] Conditional for drop down when all selected
+    - [ ] Deaths
+        - [ ] Daily
+        - [ ] Overall
+    - [ ] Cases
+        - [ ] Daily
+        - [ ] Overall
+    - [ ] Minimum date
+    - [ ] Maximum date
+    - [ ] Search
+- [ ] Result window 
+    - [ ] Table view
+    - [ ] Graphs
 
 ## Installation using Docker
 
@@ -34,3 +62,4 @@ This project is simple to setup:
 5. Next, run `yarn install` to install all the dependencies needed for this project to work
 6. Then, in a separate terminal window, run the command `npm start` in the root directory of the project
 7. This will spawn a new window where the application will be running
+
