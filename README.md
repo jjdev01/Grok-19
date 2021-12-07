@@ -2,6 +2,8 @@
 
 A COVID 19 dashboard written in React JS to display information regarding infections, deaths and other meaningful information regarding the matter.
 
+"Your problem with Vim is that you don't [grok](https://stackoverflow.com/a/1220118) vi"
+
 # Resources 
 
 - API documentation found [here](https://documenter.getpostman.com/view/1678623/SzfDx54T?version=latest)
