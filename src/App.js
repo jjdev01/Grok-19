@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css"; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
+import LeftHandSide from "./components/LeftHandSide";
 var axios = require("axios");
 
 const Title = () => (
@@ -29,6 +30,11 @@ class App extends Component {
         //alert(event.target.dataset.name);
     };
 
+    //<USAMap
+    //customize={this.statesCustomConfig()}
+    //onClick={this.mapHandler}
+    ///>
+
     /* optional customization of filling per state and calling custom callbacks per state */
     statesCustomConfig = () => {
         return {
@@ -47,10 +53,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Title />
-                <USAMap
-                    customize={this.statesCustomConfig()}
-                    onClick={this.mapHandler}
-                />
+                <LeftHandSide />
             </div>
         );
     }
