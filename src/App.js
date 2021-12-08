@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css"; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
 import LeftHandSide from "./components/LeftHandSide";
+import BarGraph from "./components/BarGraph";
 var axios = require("axios");
 
 const Title = () => (
@@ -53,6 +54,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Title />
+                <BarGraph />
                 <LeftHandSide />
             </div>
         );
