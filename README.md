@@ -14,6 +14,7 @@ A COVID 19 dashboard written in React JS to display information regarding infect
 - Interactive map for the continental United States found [here](https://www.npmjs.com/package/react-usa-map)
 - Interactive map for the entire world found [here](https://www.react-simple-maps.io/docs/getting-started/)
 - Calendar date picker [here](https://github.com/stephy/CalendarPicker)
+- Sweet Alert [here](https://sweetalert.js.org/guides/#advanced-examples)
 
 # TODO
 
