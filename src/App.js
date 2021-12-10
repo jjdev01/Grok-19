@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css"; /* optional for styling like the :hover pseudo-class */
 
 import USAMap from "react-usa-map";
 import LeftHandSide from "./components/LeftHandSide";
 import BarGraph from "./components/BarGraph";
+import { numberWithCommas } from "./helper/conversion";
+
 import swal from "sweetalert";
+import NavigationBar from "./components/NavigationBar";
 
 var axios = require("axios");
 
@@ -33,7 +38,9 @@ class App extends Component {
             .get(url)
             .then(function (response) {
                 console.log(response);
-                var message = `State: ${response.data.state}\nCases: ${response.data.cases}`;
+                var message = `State: ${
+                    response.data.state
+                }\nCases: ${numberWithCommas(response.data.cases)}`;
                 swal("hello world!", {
                     buttons: {
                         cancel: "Close",
@@ -64,6 +71,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
+                <NavigationBar />
                 <LeftHandSide />
                 <BarGraph />
                 <USAMap
