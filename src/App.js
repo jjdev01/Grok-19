@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import "./App.css"; /* optional for styling like the :hover pseudo-class */
+
 import USAMap from "react-usa-map";
 import LeftHandSide from "./components/LeftHandSide";
 import BarGraph from "./components/BarGraph";
+import swal from "sweetalert";
+
 var axios = require("axios");
 
 const Title = () => (
@@ -10,6 +13,12 @@ const Title = () => (
         <b>United States Map</b>
     </h1>
 );
+
+//<Title />
+//<USAMap
+//customize={this.statesCustomConfig()}
+//onClick={this.mapHandler}
+///>
 
 class App extends Component {
     /* mandatory */
@@ -23,18 +32,20 @@ class App extends Component {
         axios
             .get(url)
             .then(function (response) {
-                console.log(response.data);
+                console.log(response);
+                var message = `State: ${response.data.state}\nCases: ${response.data.cases}`;
+                swal("hello world!", {
+                    buttons: {
+                        cancel: "Close",
+                    },
+                    text: message,
+                });
             })
             .catch(function (error) {
                 console.log(error);
             });
         //alert(event.target.dataset.name);
     };
-
-    //<USAMap
-    //customize={this.statesCustomConfig()}
-    //onClick={this.mapHandler}
-    ///>
 
     /* optional customization of filling per state and calling custom callbacks per state */
     statesCustomConfig = () => {
@@ -53,9 +64,12 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Title />
-                <BarGraph />
                 <LeftHandSide />
+                <BarGraph />
+                <USAMap
+                    customize={this.statesCustomConfig()}
+                    onClick={this.mapHandler}
+                />
             </div>
         );
     }

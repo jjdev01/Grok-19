@@ -60,25 +60,29 @@ export default function BarGraph() {
     // data will be null when fetch call fails
     if (!data) return <span>Data not available for a Bar Graph</span>;
     return (
-        <BarChart
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-                top: 20,
-                right: 30,
-                left: 20,
-                bottom: 5,
-            }}
-        >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="state" />
-            <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
-            <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
-            <Tooltip />
-            <Legend />
-            <Bar yAxisId="left" dataKey="todayDeaths" fill="#8884d8" />
-            <Bar yAxisId="right" dataKey="todayCases" fill="#82ca9d" />
-        </BarChart>
+        <div>
+            <BarChart
+                width={500}
+                height={300}
+                data={data}
+                layout="horizontal"
+                margin={{
+                    top: 20,
+                    right: 30,
+                    left: 20,
+                    bottom: 5,
+                }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="state" />
+                <YAxis yAxisId="left" orientation="left" stroke="#8884d8" />
+                <YAxis yAxisId="right" orientation="right" stroke="#82ca9d" />
+                <Tooltip />
+                <Legend />
+                <Bar yAxisId="left" dataKey="todayDeaths" fill="#8884d8" />
+                <Bar yAxisId="right" dataKey="todayCases" fill="#82ca9d" />
+            </BarChart>
+            <b>Top Five States</b>
+        </div>
     );
 }
