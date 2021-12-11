@@ -11,6 +11,9 @@ import { numberWithCommas } from "./helper/conversion";
 import swal from "sweetalert";
 import NavigationBar from "./components/NavigationBar";
 
+import SearchResults from "./components/SearchResults";
+import SearchCriteria from "./components/SearchCriteria";
+
 var axios = require("axios");
 
 const Title = () => (
@@ -26,6 +29,12 @@ const Title = () => (
 ///>
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {inCriteria: {}};
+        this.searchCriteriaCallback = this.searchCriteriaCallback.bind(this);
+    }
+
     /* mandatory */
     mapHandler = (event) => {
         var state_name = event.target.textContent.replace(" ", "%20");
@@ -68,6 +77,12 @@ class App extends Component {
         };
     };
 
+    searchCriteriaCallback(criteria) {
+        console.log("searchCriteriaCallback =>\n");
+        console.log(criteria); 
+        this.setState({inCriteria: criteria})
+    }
+
     render() {
         return (
             <div className="App">
@@ -78,6 +93,11 @@ class App extends Component {
                     customize={this.statesCustomConfig()}
                     onClick={this.mapHandler}
                 />
+                
+                <SearchCriteria cbFunc={this.searchCriteriaCallback} />
+
+                { Object.keys(this.state.inCriteria).length !== 0
+                ? <SearchResults criteria={this.state.inCriteria}/> : "" }
             </div>
         );
     }
