@@ -1,6 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import React from 'react';
+import { numberWithCommas, titleCase } from "../helper/conversion";
 
 var axios = require("axios");
 
@@ -14,6 +15,7 @@ class SearchResults extends React.Component {
 
         this.fetchData = this.fetchData.bind(this);
         this.getDaysSinceCurrentDate = this.getDaysSinceCurrentDate.bind(this);
+        this.insertResult = this.insertResult.bind(this);
     }
 
     componentDidMount() {
@@ -55,6 +57,22 @@ class SearchResults extends React.Component {
         }
     }*/
 
+    insertResult(criteria, elem) {
+        var date = new Date(criteria.inDate).toLocaleDateString();
+        // fix year
+        date = date.substring(0, date.length - 4) + date.substring(date.length - 2, date.length);
+
+        //console.log(date);
+        //console.log(elem.timeline.cases);
+
+        this.results.push({
+            state: elem.province,
+            county: elem.county,
+            cases: elem.timeline.cases[date],
+            deaths: elem.timeline.deaths[date]
+        });
+    }
+
     fetchData(criteria) {
         this.date = new Date(criteria.inDate).toLocaleDateString();
         // NOTE: Only getting data from yesterday. Setting lastdays > 1 will mean more oncoming data, therefore heavier load / longer wait.
@@ -66,39 +84,18 @@ class SearchResults extends React.Component {
                     if (criteria.inCounty.length !== 0) {
                         if (criteria.inCounty.toLowerCase() === elem.county) {
                             console.log("matches county");
-                            
-                            var date = new Date(criteria.inDate).toLocaleDateString();
-                            // fix year
-                            date = date.substring(0, date.length - 4) + date.substring(date.length - 2, date.length);
-
-                            //console.log(date);
-                            //console.log(elem.timeline.cases);
-
-                            this.results.push({
-                                state: elem.province,
-                                county: elem.county,
-                                cases: elem.timeline.cases[date],
-                                deaths: elem.timeline.deaths[date]
-                            });
+                            this.insertResult(criteria, elem);
                         }
                     }
                     else {
                         console.log("matches all");
-
-                        var date = new Date(criteria.inDate).toLocaleDateString();
-                        // fix year
-                        date = date.substring(0, date.length - 4) + date.substring(date.length - 2, date.length);
-
-                        this.results.push({
-                            state: elem.province,
-                            county: elem.county,
-                            cases: elem.timeline.cases[date],
-                            deaths: elem.timeline.deaths[date]
-                        });
+                        this.insertResult(criteria, elem);
                     }
                 });
 
                 this.setState({ rows: this.results });
+
+                window.scrollBy(0, 400);
             }.bind(this));
     }
 
@@ -115,10 +112,10 @@ class SearchResults extends React.Component {
         return rows.map(elem => {
             return (
                 <tr>
-                    <td>{elem.state}</td>
-                    <td>{elem.county}</td>
-                    <td>{elem.cases}</td>
-                    <td>{elem.deaths}</td>
+                    <td>{titleCase(elem.state)}</td>
+                    <td>{titleCase(elem.county)}</td>
+                    <td>{numberWithCommas(elem.cases)}</td>
+                    <td>{numberWithCommas(elem.deaths)}</td>
                 </tr>
             );
         })
@@ -134,8 +131,8 @@ class SearchResults extends React.Component {
                         <tr>
                             <th scope="col">State</th>
                             <th scope="col">County</th>
-                            <th scope="col">Deaths</th>
                             <th scope="col">Cases</th>
+                            <th scope="col">Deaths</th>
                         </tr>
                     </thead>
                     <tbody>
